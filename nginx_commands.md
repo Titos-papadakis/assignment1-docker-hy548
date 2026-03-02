@@ -156,4 +156,7 @@ latest: digest: sha256:abe94c4aacf7e8989118a51a497f22400b2bfaa00c11299dada91d317
 
 
 
-4) YAML 
+4) YAML
+
+έκανα το github action στο .yml που κανει build και push αυτοματα το image στο Dockerhub με workflow dispatch 
+τρεχει σε περιπου ενα λεπτο και το image υπάρχει στο https://hub.docker.com/r/titoyannis/django-app
