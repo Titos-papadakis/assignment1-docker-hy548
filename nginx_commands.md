@@ -89,10 +89,71 @@ d)docker run -d -p 8000:80 -v C:/Users/titos/index/:/usr/share/nginx/html nginx 
 
 3)
 
-a)
-b)
-c)
+a)docker build -t titos/example:latest . docker images , η δική μου είναι μεγαλύτερη γιατί πρόσθεσα layers από πάνω
+django,vim κλπ
+b)Μετά την προσθήκη φακέλου και το rebuild τα κοντεινερς τρέχουν κανονικά και για να δω ότι υπάρχει διαφορά μπήκα στο 8000 και στο 8001 με ενα non existing page και στο ενα εβγαλε απλα ενα μηνυμα λαθους ενω στο αλλο ηταν αναλυτικο και το πανω μερος ηταν και κιτρινο 
+docker build -t titos/django-app:latest . && docker run -d -p 8000:8000 --name django-debug titos/django-app:latest
+&& docker run -d -p 8001:8000 -e DJANGO_DEBUG=0 --name django-nodebug titos/django-app:latest
+&& docker ps &&  docker logs django-debug && docker logs django-nodebug && http://localhost:8000  
+&& http://localhost:8001 && http://localhost:8000/some-non-existent-page && http://localhost:8001/some-non-existent-page
+
+τα λογκς βγαλανε αυτο 
+
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 02, 2026 - 21:15:42
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
 
 
-4)
-Yaml
+C:\Users\titos\Downloads\Pass_1234_Setup (1)\OneDrive\Υπολογιστής\548-ass1\assignment1-docker-hy548\django>
+
+
+
+c) docker push titoyannis/django-app:latest 
+
+και εβγαλε αυτο 
+
+The push refers to repository [docker.io/titoyannis/django-app]
+23b7d26ef1d2: Pushed
+c7672f4959ea: Pushed
+8566b36070c1: Pushed
+07d1b5af933d: Pushed
+b0b06581a769: Pushed
+b617a119f8a2: Pushed
+ed4a05daa2ca: Pushed
+cee1f735bb4d: Pushed
+beaa49fa38f1: Pushed
+4f4fb700ef54: Pushed
+1eb98adba0eb: Pushed
+b871035c026b: Pushed
+latest: digest: sha256:abe94c4aacf7e8989118a51a497f22400b2bfaa00c11299dada91d3170e5d237 size: 856
+
+
+
+
+4) YAML 
